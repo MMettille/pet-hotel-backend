@@ -2,7 +2,7 @@
 
 /*
     This class sets up the link between your Plain Old C# Object (POCO) and
-    the Database. Entity Framework is the name of the system that facilitaes
+    the Database. Entity Framework is the name of the system that facilitates
     this linkage.
 
     This class inherits from the `DbContext` class. To make a POCO database
