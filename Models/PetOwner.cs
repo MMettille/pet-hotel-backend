@@ -19,7 +19,15 @@ namespace pet_hotel
 
         public string emailAddress {get; set;}
 
+        [JsonIgnore]
+        public ICollection<Pet>pets{get; set;}
         [NotMapped]
-        public int petCount {get; set;}
+        public int petCount
+        {
+            get
+            {
+                return (pets == null ? 0 : pets.Count);
+            }
+        }
     }
 }

@@ -42,8 +42,9 @@ namespace pet_hotel
         public DateTime checkedInAt {get; set;}
 
         public PetOwner petOwner {get; set;}
+        
         [Required]
         [ForeignKey("PetOwner")]
-            public int petOwnerid {get; set;}
+        public int petOwnerid {get; set;}        
     }
 }
