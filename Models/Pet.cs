@@ -39,7 +39,7 @@ namespace pet_hotel
         [JsonConverter(typeof(JsonStringEnumConverter))]  // dont want a number, get me the actual value
         public PetColorType color {get; set;}
 
-        public DateTime checkedInAt {get; set;}
+        public static DateTime Now { get; set;}
 
         public PetOwner petOwner {get; set;}
         
