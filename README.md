@@ -27,13 +27,13 @@ ready to go. For base mode you do not need to update the React App at all. Simpl
 `npm start` to run the client application. Build the HTTP API until all of the functionality of the Client App is working:
 
    - All 11 jest tests are passing (see below)
-   - Loading the page shows Pets and Pet Owners in the table.
-   - User can add a new Pet Owner (and see error validations).
+   [HALF DONE] Loading the page shows Pets and Pet Owners in the table.
+   [DONE] User can add a new Pet Owner (and see error validations).
    - User can add new Pets, associated with pet owners (and see error validations).
    - User can check in a pet and see the timestamp on the table.
    - User can check out a pet.
    - User can delete pets.
-   - User can delete pet owners.
+   [DONE] User can delete pet owners.
 
 Your general approach should be like so:
 
@@ -82,7 +82,7 @@ For all API requests that require an id in the URL, the format `/api/resource/:i
 
 ### Jest Tests
 
-This project is ready to go with a suite of tests that hit the expected endpoints and check the reponses. Once all tests pass, your job is done! The tests are set up in the `ClientApp/` folder. Run `npm test` to run the tests. See `ClientApp/tests/http-api.test.js` for more information. Study the tests to see how the API is meant to be used!
+This project is ready to go with a suite of tests that hit the expected endpoints and check the responses. Once all tests pass, your job is done! The tests are set up in the `ClientApp/` folder. Run `npm test` to run the tests. See `ClientApp/tests/http-api.test.js` for more information. Study the tests to see how the API is meant to be used!
 
 ### Pet Owner Object
 
