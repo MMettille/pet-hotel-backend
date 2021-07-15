@@ -28,29 +28,6 @@ namespace pet_hotel.Controllers
             // return new List<Pet>();
         }
 
-        // [HttpGet]
-        // [Route("test")]
-        // public IEnumerable<Pet> GetPets() {
-        //     PetOwner blaine = new PetOwner{
-        //         name = "Blaine"
-        //     };
-
-        //     Pet newPet1 = new Pet {
-        //         name = "Big Dog",
-        //         petOwner = blaine,
-        //         color = PetColorType.Black,
-        //         breed = PetBreedType.Poodle,
-        //     };
-
-        //     Pet newPet2 = new Pet {
-        //         name = "Little Dog",
-        //         petOwner = blaine,
-        //         color = PetColorType.Golden,
-        //         breed = PetBreedType.Labrador,
-        //     };
-
-        //     return new List<Pet>{ newPet1, newPet2};
-        // }
 
         [HttpPost]
 
@@ -72,6 +49,38 @@ namespace pet_hotel.Controllers
             _context.Pet.Remove(pet);
             _context.SaveChanges();
             return NoContent();
+        }
+
+        [HttpPut("/api/pets/{id}/checkin")]
+        public IActionResult CheckIn(int id)
+        {
+            Pet petToUpdate = _context.Pet.Find(id);
+            if (petToUpdate == null) return NotFound();
+            petToUpdate.checkedIn();
+            _context.Update(petToUpdate);
+            _context.SaveChanges();
+            return Ok(petToUpdate);
+        }
+
+        [HttpPut("/api/pets/{id}/checkout")]
+        public IActionResult CheckOut(int id)
+        {
+            Pet petToUpdate = _context.Pet.Find(id);
+            if (petToUpdate == null) return NotFound();
+            petToUpdate.checkedOut();
+            _context.Update(petToUpdate);
+            _context.SaveChanges();
+            return Ok(petToUpdate);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] Pet newPet)
+        {
+            if (id != newPet.id) return BadRequest();
+            if(!_context.Pet.Any(pet => pet.id == id)) return NotFound();
+            _context.Update(newPet);
+            _context.SaveChanges();
+            return Ok(newPet);
         }
     }
 }

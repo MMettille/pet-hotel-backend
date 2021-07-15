@@ -39,7 +39,16 @@ namespace pet_hotel
         [JsonConverter(typeof(JsonStringEnumConverter))]  // dont want a number, get me the actual value
         public PetColorType color {get; set;}
 
-        public static DateTime Now { get; set;}
+        public DateTime? checkedInAt { get; set;}
+        public void checkedIn()
+        {
+            this.checkedInAt = DateTime.Now;
+        }
+
+        public void checkedOut()
+        {
+            this.checkedInAt = null;
+        }
 
         public PetOwner petOwner {get; set;}
         

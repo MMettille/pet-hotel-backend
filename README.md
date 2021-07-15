@@ -32,7 +32,7 @@ ready to go. For base mode you do not need to update the React App at all. Simpl
    [DONE] User can add new Pets, associated with pet owners (and see error validations).
    - User can check in a pet and see the timestamp on the table.
    - User can check out a pet.
-   - User can delete pets.
+   [DONE] User can delete pets.
    [DONE] User can delete pet owners.
 
 Your general approach should be like so:
