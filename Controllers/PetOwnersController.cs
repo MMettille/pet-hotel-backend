@@ -28,6 +28,7 @@ namespace pet_hotel.Controllers
             // return new List<PetOwner>(); // Commented out to add code.
         }
 
+        [HttpPost]
         public IActionResult Post([FromBody] PetOwner petOwner)
         {
             _context.Add(petOwner);
