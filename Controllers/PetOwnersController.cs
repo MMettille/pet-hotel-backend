@@ -12,7 +12,8 @@ namespace pet_hotel.Controllers
     public class PetOwnersController : ControllerBase
     {
         private readonly ApplicationContext _context;
-        public PetOwnersController(ApplicationContext context) {
+        public PetOwnersController(ApplicationContext context)
+        {
             _context = context;
         }
 
@@ -36,5 +37,15 @@ namespace pet_hotel.Controllers
 
             return CreatedAtAction(nameof(GetPets), petOwner);
         } 
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            PetOwner petOwner = _context.PetOwner.Find(id);
+            if (petOwner == null) return NotFound();
+            _context.PetOwner.Remove(petOwner);
+            _context.SaveChanges();
+            return NoContent();
+        }
     }
 }
