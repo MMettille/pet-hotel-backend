@@ -30,11 +30,16 @@ namespace pet_hotel.Controllers
 
 
         [HttpPost]
-
         public IActionResult Post([FromBody] Pet pet)
         {
-            Console.WriteLine(pet); // <= let's us see our pet Object.
+            PetOwner owner = _context.PetOwner
+            .SingleOrDefault(owner => owner.id == pet.petOwnerid);
 
+            if(owner == null)
+            {
+                ModelState.AddModelError("petOwnerId", "Invalid Pet Owner ID");
+                return ValidationProblem(ModelState);
+            }
             _context.Add(pet);
             _context.SaveChanges();
 

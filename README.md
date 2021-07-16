@@ -30,8 +30,8 @@ ready to go. For base mode you do not need to update the React App at all. Simpl
    [DONE] Loading the page shows Pets and Pet Owners in the table.
    [DONE] User can add a new Pet Owner (and see error validations).
    [DONE] User can add new Pets, associated with pet owners (and see error validations).
-   - User can check in a pet and see the timestamp on the table.
-   - User can check out a pet.
+   [DONE] User can check in a pet and see the timestamp on the table.
+   [DONE] User can check out a pet.
    [DONE] User can delete pets.
    [DONE] User can delete pet owners.
 
